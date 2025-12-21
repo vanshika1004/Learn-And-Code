@@ -1,0 +1,4 @@
+Does this Book class follow SRP? 
+The Book class does not follow SRP.
+SRP says that a class should have only one responsibility.
+It handles multiple responsibilities: book data(title & author), page navigation, location tracking, and saving to a file.
