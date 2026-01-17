@@ -1,0 +1,54 @@
+Functions Assignments
+
+2. 
+Code -
+function saveUser(user) { 
+ 
+    if (user.name == "" || user.email == "") { 
+        print("Invalid user data"); 
+        return; 
+    } 
+ 
+    db.insert("Users", user); 
+ 
+    filePath = "/backup/users/" + user.id + ".txt"; 
+    writeToFile(filePath, user); 
+} 
+
+This function is performing three responsibilites - Validates user data, Saves the user to the database & Writes user data to backup file .
+This is not following SRP. According to Single Responsibility Principle, a class should have only one reason to change and should perform
+a single responsibility.
+
+After applying SRP to this code,
+
+Code-
+
+void SaveUser(User user)
+{
+    if (!CheckValidUser(user))
+    {
+        Console.WriteLine("Invalid user data");
+        return;
+    }
+
+    SaveToDatabase(user);
+    BackupUserData(user);
+}
+
+bool CheckValidUser(User user)
+{
+    return !(user.Name == "" || user.Email == "");
+}
+
+void SaveToDatabase(User user)
+{
+    db.insert("Users", user);
+}
+
+void BackupUserData(User user)
+{
+    string filePath = "/backup/users/" + user.Id + ".txt";
+    writeToFile(filePath, user);
+}
+
+

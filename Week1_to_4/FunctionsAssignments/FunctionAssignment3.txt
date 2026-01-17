@@ -1,0 +1,93 @@
+3. Analyse the below function to place order. Identify if it follows a single level of 
+abstraction? and refactor if it is not. 
+ 
+function placeOrder(orderId, orderAmount) { 
+ 
+    if (isOrderInvalid(orderId)) { 
+        showInvalidOrderMessage(); 
+        return; 
+    } 
+                 discountAmount = orderAmount * 0.10; 
+    tax = calculateTax(orderAmount); 
+    finalAmount = (tax + orderAmount) - discountAmount; 
+ 
+    saveOrder(order.id, finalAmount); 
+ 
+    print("Order placed successfully"); 
+} 
+ 
+function isOrderInvalid(order) { 
+    return orderId > 0; 
+} 
+ 
+function calculateTax(amount) { 
+    return amount * 0.18 
+} 
+ 
+function showInvalidOrderMessage() { 
+    print("Order cannot be empty"); 
+} 
+function saveOrder(orderId, amount) { 
+    print ("Order saved in databse") 
+}
+
+EXplanation- No, This is violating the Single Level of Abstraction rule.
+Here, placeOrder() is doing too much at different abstraction levels:
+-> High-level logic including validate order,
+-> Low - level logic including calculating the discount amount and calculating tax
+->Saving Order
+->Printing Messages.
+
+After refactoring, code is-
+
+void PlaceOrder(int orderId, decimal orderAmount)
+{
+    if (IsOrderInvalid(orderId))
+    {
+        ShowInvalidOrderMessage();
+        return;
+    }
+
+    decimal finalAmount = CalculateFinalAmount(orderAmount);
+    SaveOrder(orderId, finalAmount);
+
+    ShowOrderSuccessMessage();
+}
+
+bool IsOrderInvalid(int orderId)
+{
+    return orderId <= 0;
+}
+
+void ShowInvalidOrderMessage()
+{
+    Console.WriteLine("Order cannot be empty");
+}
+
+decimal CalculateFinalAmount(decimal orderAmount)
+{
+    decimal discountAmount = CalculateDiscount(orderAmount);
+    decimal taxAmount = CalculateTax(orderAmount);
+
+    return (orderAmount + taxAmount) - discountAmount;
+}
+
+decimal CalculateDiscount(decimal amount)
+{
+    return amount * 0.10m;
+}
+
+decimal CalculateTax(decimal amount)
+{
+    return amount * 0.18m;
+}
+
+void ShowOrderSuccessMessage()
+{
+    Console.WriteLine("Order placed successfully");
+}
+
+void SaveOrder(int orderId, decimal amount)
+{
+    Console.WriteLine("Order saved in database");
+}
