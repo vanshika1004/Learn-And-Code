@@ -12,7 +12,23 @@ Comments Analysis-
 8. // Something went wrong								Misleading Comment
 9. // TODO: Fix this later								ToDo Comment
 10.// Added by John on 12/15/2023 - needed for the new feature	Journal Comment/Byline
-11.// This is important!!!								Noise Comment	
+11.// This is important!!!								Noise Comment
+12.// Gets order by ID                                  Redundant Comment
+13.// Saves the order                                   Redundant Comment
+14.// If no inventory, return failure                   Redundant Comment
+15.// Process payment                                   Redundant Comment
+16.// Check if payment succeeded                        Redundant Comment
+17.// Update inventory                                  Redundant Comment
+18.// Send confirmation email                           Redundant Comment
+19.// Payment failed, release inventory                 Redundant Comment
+20.// Return failure                                    Redundant Comment
+21.// Log the error                                     Misleading Comment
+22.// Get the order                                     Redundant Comment
+23.// John says we need to refund here                  Misleading Comment
+24.// Refund the payment                                Redundant Comment
+25.// Give back the items                               Redundant Comment
+26.// Update status                                     Redundant Comment
+27.// Implementation here                               Noise Comment
 
 Redundant Comment - These comments state the obvious wriiten in the code.
 Noise Comment - These comments provide no new insight.
