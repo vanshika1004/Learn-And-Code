@@ -14,6 +14,22 @@ Comments Analysis-
 10.// Added by John on 12/15/2023 - needed for the new feature	Journal Comment/Byline
 11.// This is important!!!								Noise Comment	
 
+Redundant Comment - These comments state the obvious wriiten in the code.
+Noise Comment - These comments provide no new insight.
+Misleading Comment - These comments contradict the code, are no longer accurate, or suggest behavior 
+that the code does not actually perform.
+ToDo Comment - TODO comments indicate tasks that still need to be done, problems that must be fixed, 
+or code that is incomplete.
+Journal Comment - Journal comments are comments that act like a change log, recording updates, authors, 
+or dates directly in the source code.
+ByLine comment - Byline comments are comments that state who wrote the code.
+
+I learned that unnecessary comments should be avoided because well-written, readable code can explain its own
+intent.Clear method names, meaningful variable names, and proper structure reduce the need for comments. Comments
+should not be used to explain obvious logic, but only where the intent, business rules, or consequences are not 
+immediately clear from the code. The goal is to write code that communicates clearly first and rely on comments
+only when they add real value.
+
 Code after removing unnecessary comments-
 public class OrderProcessor
 {

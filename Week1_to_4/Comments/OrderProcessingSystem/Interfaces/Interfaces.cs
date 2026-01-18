@@ -9,10 +9,7 @@ namespace OrderProcessingSystem.Interfaces
 {
     public interface IPaymentGateway
     {
-        Task<PaymentResult> ProcessPayment(
-            string customerId,
-            decimal amount,
-            string paymentMethod);
+        Task<PaymentResult> ProcessPayment(string customerId, decimal amount, string paymentMethod);
 
         Task RefundPayment(string transactionId);
     }

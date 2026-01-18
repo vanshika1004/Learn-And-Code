@@ -13,10 +13,7 @@ namespace OrderProcessingSystem.Services
         private readonly OrderServices _services;
         private readonly OrderRepository _repository;
 
-        public OrderProcessor(
-            OrderValidator validator,
-            OrderServices services,
-            OrderRepository repository)
+        public OrderProcessor(OrderValidator validator, OrderServices services, OrderRepository repository)
         {
             _validator = validator;
             _services = services;

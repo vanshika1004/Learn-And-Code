@@ -14,10 +14,7 @@ namespace OrderProcessingSystem.Services
         private readonly IInventoryService _inventoryService;
         private readonly INotificationService _notificationService;
 
-        public OrderServices(
-            IPaymentGateway paymentGateway,
-            IInventoryService inventoryService,
-            INotificationService notificationService)
+        public OrderServices(IPaymentGateway paymentGateway, IInventoryService inventoryService, INotificationService notificationService)
         {
             _paymentGateway = paymentGateway;
             _inventoryService = inventoryService;
@@ -35,8 +32,7 @@ namespace OrderProcessingSystem.Services
 
             try
             {
-                var payment =
-                    await _paymentGateway.ProcessPayment(
+                var payment = await _paymentGateway.ProcessPayment(
                         order.CustomerId,
                         order.TotalAmount,
                         order.PaymentMethod);
