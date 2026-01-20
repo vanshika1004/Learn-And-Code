@@ -46,13 +46,21 @@ public class PaymentProcessor {
         return new PaymentResult(false, PAYMENT_FAILED, null);
     }
 
-    private void validate(PaymentRequest request) {
+
+    private void validateRequest(PaymentRequest request) {
+        validateCustomer(request);
+        validateAmount(request);
+    }
+
+    private void validateCustomer(PaymentRequest request) {
         if (request.customerId() == null || request.customerId().isBlank()) {
             throw new IllegalArgumentException("Customer ID required");
         }
+    }
 
-        if (request.amount() == null
-                || request.amount().compareTo(MIN_AMOUNT) < 0) {
+    private void validateAmount(PaymentRequest request) {
+        if (request.amount() == null ||
+                request.amount().compareTo(MIN_AMOUNT) < 0) {
             throw new IllegalArgumentException("Invalid amount");
         }
     }
