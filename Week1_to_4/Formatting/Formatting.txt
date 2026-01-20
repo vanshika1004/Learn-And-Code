@@ -54,7 +54,7 @@ public class PaymentProcessor {
 
     private void validateCustomer(PaymentRequest request) {
         if (request.customerId() == null || request.customerId().isBlank()) {
-            throw new IllegalArgumentException("Customer ID required");
+            throw new IllegalArgumentException("Customer ID required.");
         }
     }
 
