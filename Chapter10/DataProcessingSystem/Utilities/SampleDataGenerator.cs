@@ -14,9 +14,9 @@ namespace DataProcessingSystem.Utilities
             var lines = new List<string>();
             var rnd = new Random();
 
-            for (int i = 1; i <= count; i++)
+            for (int index = 1; index <= count; index++)
             {
-                lines.Add($"ID{i:D4},Item{i},{rnd.Next(10, 1000)},{DateTime.Now:yyyy-MM-dd}");
+                lines.Add($"ID{index:D4},Item{index},{rnd.Next(10, 1000)},{DateTime.Now:yyyy-MM-dd}");
             }
 
             File.WriteAllLines(path, lines);
