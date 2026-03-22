@@ -12,9 +12,7 @@ namespace CreatorMonetization.Strategies
     {
         private readonly double _monthlyFee;
         private readonly double _platformCutPercent;  
-
         public string EarningType => "Subscriptions";
-
         public SubscriptionStrategy(double monthlyFee = 2.0, double platformCutPercent = 0.30)
         {
             if (monthlyFee < 0) throw new ArgumentOutOfRangeException(nameof(monthlyFee));

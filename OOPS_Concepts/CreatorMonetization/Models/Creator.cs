@@ -11,7 +11,6 @@ namespace CreatorMonetization.Models
     {
         private readonly List<IEarningStrategy> _strategies = new List<IEarningStrategy>();
         private string _name;
-
         public string Name
         {
             get => _name;
@@ -24,9 +23,7 @@ namespace CreatorMonetization.Models
         }
 
         public string Category { get; }   
-
         public IReadOnlyList<IEarningStrategy> Strategies => _strategies.AsReadOnly();
-
         public Creator(string name, string category = "General")
         {
             Name = name;

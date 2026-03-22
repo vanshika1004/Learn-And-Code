@@ -10,8 +10,6 @@ namespace CreatorMonetization.Interfaces
     public interface IEarningStrategy
     {
         string EarningType { get; }
-
-
         double Calculate(EarningContext context);
     }
 }

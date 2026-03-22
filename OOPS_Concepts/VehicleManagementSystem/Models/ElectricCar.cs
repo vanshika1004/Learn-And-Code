@@ -23,8 +23,8 @@ namespace VehicleManagementSystem.Models
             }
         }
 
-        public ElectricCar(string make, string model, int year, double price, double initialBattery)
-            : base(make, model, year, price)
+        public ElectricCar(string manufacturer, string model, int year, double price, double initialBattery)
+            : base(manufacturer, model, year, price)
         {
             BatteryLevel = initialBattery;
         }

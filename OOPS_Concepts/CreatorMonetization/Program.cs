@@ -34,7 +34,6 @@ namespace CreatorMonetization
 
             techCreator.PrintEarningsReport(usRegularContext);
 
-            // Same creator during festive season — higher ad rates + brand bonuses
             var usFestiveContext = new EarningContext(
                 views: 800_000,
                 subscribers: 8_000,

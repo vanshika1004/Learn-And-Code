@@ -1,5 +1,6 @@
 ﻿using CreatorMonetization.Interfaces;
 using CreatorMonetization.Models;
+using CreatorMonetization.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,17 +25,8 @@ namespace CreatorMonetization.Strategies
 
         public double Calculate(EarningContext context)
         {
-            double regionMultiplier;
-            if (context.Region == "US") regionMultiplier = 1.5;
-            else if (context.Region == "EU") regionMultiplier = 1.2;
-            else if (context.Region == "IN") regionMultiplier = 0.6;
-            else regionMultiplier = 1.0;
-
-            double seasonMultiplier;
-            if (context.Season == "FESTIVE") seasonMultiplier = 1.4;
-            else if (context.Season == "OFFSEASON") seasonMultiplier = 0.7;
-            else seasonMultiplier = 1.0;
-
+            double regionMultiplier = EarningMultipliers.GetRegionMultiplier(context.Region);
+            double seasonMultiplier = EarningMultipliers.GetSeasonMultiplier(context.Season);
             double engagementBonus = 1 + (context.EngagementRate * 0.5);
 
             return context.Views * _baseCpmRate * regionMultiplier
