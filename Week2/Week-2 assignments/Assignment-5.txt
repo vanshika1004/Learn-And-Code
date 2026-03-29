@@ -1,0 +1,4 @@
+The Employee class does not follow SRP.
+It handles multiple responsibilities: saving Employee data to Database, report generation (XML/CSV), and employment status management.
+Changes in database logic or report formats would force changes in the same class.
+Each responsibility should be moved to separate classes.
