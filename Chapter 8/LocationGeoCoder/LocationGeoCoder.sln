@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37111.16 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocationGeoCoder", "LocationGeoCoder\LocationGeoCoder.csproj", "{FA35FE8E-3F39-429D-AE7B-D0B3B2E5600F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA35FE8E-3F39-429D-AE7B-D0B3B2E5600F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA35FE8E-3F39-429D-AE7B-D0B3B2E5600F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA35FE8E-3F39-429D-AE7B-D0B3B2E5600F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA35FE8E-3F39-429D-AE7B-D0B3B2E5600F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C24F7BB-7851-4574-BFED-17D327488AE8}
+	EndGlobalSection
+EndGlobal
