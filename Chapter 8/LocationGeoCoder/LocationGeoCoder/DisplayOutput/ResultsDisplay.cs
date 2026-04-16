@@ -19,10 +19,10 @@ namespace LocationGeoCoder.DisplayOutput
 
             Console.WriteLine($"\n  {locations.Count} result(s) for \"{query}\":\n");
 
-            for (int i = 0; i < locations.Count; i++)
+            for (int index = 0; index < locations.Count; index++)
             {
-                var loc = locations[i];
-                Console.WriteLine($"  {i + 1}. {loc.FormattedAddress}");
+                var loc = locations[index];
+                Console.WriteLine($"  {index + 1}. {loc.FormattedAddress}");
                 Console.WriteLine($"     Latitude  : {loc.Latitude:F6}");
                 Console.WriteLine($"     Longitude : {loc.Longitude:F6}");
                 Console.WriteLine();

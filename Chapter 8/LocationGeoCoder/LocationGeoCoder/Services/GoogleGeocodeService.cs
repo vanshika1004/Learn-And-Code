@@ -40,8 +40,8 @@ namespace LocationGeoCoder.Services
             var response = await _httpClient.GetAsync(url);
             response.EnsureSuccessStatusCode();
 
-            var json = await response.Content.ReadAsStringAsync();
-            var apiResponse = JsonSerializer.Deserialize<GeocodeApiResponse>(json)
+            var jsonResponse = await response.Content.ReadAsStringAsync();
+            var apiResponse = JsonSerializer.Deserialize<GeocodeApiResponse>(jsonResponse)
                 ?? throw new InvalidOperationException("Received an empty response from the geocoding API.");
 
             return MapToLocations(apiResponse, locationName);
@@ -57,8 +57,8 @@ namespace LocationGeoCoder.Services
                         .Select(r => new GeoLocation
                         {
                             FormattedAddress = r.FormattedAddress,
-                            Latitude = r.Geometry.Location.Lat,
-                            Longitude = r.Geometry.Location.Lng
+                            Latitude = r.Geometry.Location.Latitude,
+                            Longitude = r.Geometry.Location.Longtitude
                         })
                         .ToList()
                         .AsReadOnly();
