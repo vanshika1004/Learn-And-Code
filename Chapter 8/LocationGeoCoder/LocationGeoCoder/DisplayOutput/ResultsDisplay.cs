@@ -1,0 +1,45 @@
+﻿using LocationGeoCoder.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LocationGeoCoder.DisplayOutput
+{
+    public static class ResultsDisplay
+    {
+        public static void ShowResults(IReadOnlyList<GeoLocation> locations, string query)
+        {
+            if (locations.Count == 0)
+            {
+                Console.WriteLine($"\n  No results found for \"{query}\".\n");
+                return;
+            }
+
+            Console.WriteLine($"\n  {locations.Count} result(s) for \"{query}\":\n");
+
+            for (int index = 0; index < locations.Count; index++)
+            {
+                var loc = locations[index];
+                Console.WriteLine($"  {index + 1}. {loc.FormattedAddress}");
+                Console.WriteLine($"     Latitude  : {loc.Latitude:F6}");
+                Console.WriteLine($"     Longitude : {loc.Longitude:F6}");
+                Console.WriteLine();
+            }
+        }
+
+        public static void ShowBanner()
+        {
+            Console.WriteLine("  Geocoding Lookup");
+            Console.WriteLine("  ----------------");
+            Console.WriteLine();
+        }
+
+        public static void ShowError(string message) =>
+            Console.WriteLine($"\n  Error: {message}\n");
+
+        public static void ShowWarning(string message) =>
+            Console.WriteLine($"\n  {message}\n");
+    }
+}
