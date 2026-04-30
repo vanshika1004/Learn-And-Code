@@ -8,5 +8,6 @@ class Program
         Console.WriteLine("v2 working");
         Console.WriteLine("v3 working");
         throw new Exception("bug introduced");
+        Console.WriteLine(x);
     }
 }
