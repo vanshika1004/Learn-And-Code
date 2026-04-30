@@ -1,0 +1,15 @@
+﻿** Git Snapshot**
+
+A Git snapshot is how Git stores your project at a point in time.
+Instead of saving “differences between files,” Git records a complete picture of your project’s files and
+their contents for each commit.
+
+Each commit (snapshot) stores:
+
+->File contents (not just changes)
+->File structure (folders, paths)
+->Metadata:
+  ->author
+  ->timestamp
+  ->commit message
+->Reference to previous commit (parent)
