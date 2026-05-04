@@ -1,0 +1,215 @@
+# 📄 Design Document
+
+## Personal Finance Manager (Console Application)
+
+---
+
+# 1. Overview
+
+The Personal Finance Manager is a console-based application designed to help users manage their **expenses, income, and budgets** efficiently. The system allows users to record financial transactions, categorize them, and track spending against predefined budgets.
+
+The application follows a **layered architecture** using **MVC, Repository, and Service patterns**, ensuring clean code, scalability, and maintainability.
+
+---
+
+# 2. Objectives
+
+* Provide an easy-to-use console interface for financial tracking
+* Maintain persistent data using a relational database
+* Enable category-wise tracking of expenses and income
+* Support budget management and financial summaries
+* Ensure modular and maintainable system design
+
+---
+
+# 3. System Architecture
+
+The system follows a layered architecture:
+
+* **Presentation Layer (UI)** → Console-based interaction
+* **Controller Layer** → Handles user actions
+* **Service Layer** → Business logic and calculations
+* **Repository Layer** → Data access abstraction
+* **Database Layer** → Data storage
+
+### Flow:
+
+User → ConsoleUI → FinanceManager → Service → Repository → Database
+
+---
+
+# 4. Design Patterns Used
+
+### 4.1 Model-View-Controller (MVC)
+
+* **Model** → Expense, Income, Budget
+* **View** → ConsoleUI
+* **Controller** → FinanceManager
+
+---
+
+### 4.2 Repository Pattern
+
+* Abstracts database operations
+* Interfaces:
+
+  * IExpenseRepository
+  * IIncomeRepository
+  * IBudgetRepository
+
+---
+
+### 4.3 Service Layer Pattern
+
+* Handles business logic
+* Example: SummaryService (calculations, reports)
+
+---
+
+### 4.4 Dependency Injection (Conceptual)
+
+* Uses interfaces instead of concrete classes
+* Promotes loose coupling
+
+---
+
+# 5. Class Diagram Description
+
+The system consists of the following key components:
+
+### 5.1 Entities (Models)
+
+* **Expense**: Stores expense details (amount, category, date)
+* **Income**: Stores income details (source, amount, date)
+* **Budget**: Stores category-wise budget limits
+
+---
+
+### 5.2 Repositories
+
+* ExpenseRepository
+* IncomeRepository
+* BudgetRepository
+
+These interact with the database via DatabaseHelper.
+
+---
+
+### 5.3 Service Layer
+
+* **SummaryService**
+
+  * Calculates total income
+  * Calculates total expenses
+  * Computes balance
+  * Provides category-wise summaries
+
+---
+
+### 5.4 Controller
+
+* **FinanceManager**
+
+  * Handles user actions
+  * Coordinates between UI, services, and repositories
+
+---
+
+### 5.5 Utility Classes
+
+* **InputValidator** → Validates user input
+* **DatabaseHelper** → Manages DB connection and queries
+
+---
+
+# 6. Database Design
+
+The system uses a relational database with the following tables:
+
+---
+
+### 6.1 Category
+
+* id (PK)
+* name
+* type (Expense / Income)
+
+---
+
+### 6.2 Expense
+
+* id (PK)
+* category_id (FK)
+* amount
+* date
+* description
+* created_at
+
+---
+
+### 6.3 Income
+
+* id (PK)
+* category_id (FK)
+* source
+* amount
+* date
+* description
+* created_at
+
+---
+
+### 6.4 Budget
+
+* id (PK)
+* category_id (FK)
+* limit_amount
+* spent_amount
+* month
+* updated_at
+
+---
+
+### Constraints:
+
+* Foreign Key: category_id → Category.id
+* Unique Constraint: (category_id, month)
+
+---
+
+# 7. ER Diagram Description
+
+The ER diagram represents the conceptual model:
+
+* Category is the central entity
+* Relationships:
+
+  * Category → Expense (1:M)
+  * Category → Income (1:M)
+  * Category → Budget (1:M)
+
+Each expense, income, and budget record belongs to exactly one category.
+
+---
+
+# 8. Functional Workflow
+
+### Example: Add Expense
+
+1. User selects “Add Expense”
+2. ConsoleUI collects input
+3. FinanceManager processes request
+4. InputValidator validates data
+5. Expense object is created
+6. ExpenseRepository saves data
+7. Database is updated
+8. Confirmation displayed
+
+
+---
+
+# 9. Conclusion
+
+The system demonstrates a well-structured and scalable design using standard software engineering principles. The separation of concerns, use of design patterns, and proper database modeling ensure maintainability and extensibility.
+
+---
